@@ -20,6 +20,14 @@ router.put('/product/:Id', product.update);
 
 router.delete('/product/:Id', product.delete);
 
+//cart
+
+router.get('/cart', product.getCart);
+
+router.post('/cart', product.postCart);
+
+router.post('/cart-delete-item', product.postCartDeleteProduct);
+
 
 
 module.exports = router;

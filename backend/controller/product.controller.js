@@ -1,4 +1,5 @@
 const Product = require('../model/product');
+const User = require("../model/user");
 
 exports.create = (req, res) => {
 
@@ -108,4 +109,60 @@ exports.delete = (req, res) => {
                 message: "Could not delete note with id " + req.params.Id
             });
         });
+};
+
+exports.getCart = (req, res, next) => {
+    var user = req.user;
+    User.findById(req.user.id, function(err, foundUser) {
+        let user = foundUser;
+        user.populate('cart.items.productId')
+        .execPopulate() // populate itself does not return a promise
+        .then(user => {
+            const products = user.cart.items;
+            res.send(products);
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.httpStatusCode = 500;
+            return next(error);
+        });
+    });
+};
+
+exports.postCart = (req, res, next) => {
+    const prodId = req.body.productId;
+    Product.findById(prodId)
+        .then(product => {
+            var user = req.user;
+            User.findById(req.user.id, function(err, foundUser) {
+                let user = foundUser;
+                return user.addToCart(product);
+            });           
+        })
+        .then(result => {
+            res.send({ message: "Product added to cart successfully!" });
+           // res.redirect('/cart');
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.httpStatusCode = 500;
+            return next(error);
+        });
+};
+
+exports.postCartDeleteProduct = (req, res, next) => {
+    const prodId = req.body.productId;
+    var user = req.user;
+    User.findById(req.user.id, function(err, foundUser) {
+        let user = foundUser;
+        user.removeFromCart(prodId)
+        .then(result => {
+            res.redirect('/cart');
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.httpStatusCode = 500;
+            return next(error);
+        });
+    });
 };
