@@ -6,13 +6,15 @@ const bodyParser = require('body-parser');
 // require('dotenv/config');
 const dotenv = require("dotenv");
 const verifyToken = require("./routes/validate-token");
-const PublicRoutes = require("./routes/routes.js");
-const AuthRoutes = require("./routes/user-logged");
+const authRoutes = require("./routes/auth.js");
+const userRoutes = require("./routes/user-logged");
 
 
 const app = express();
 dotenv.config();
 connectDB();
+
+app.set('view engine', 'ejs');
 
 
 app.use(bodyParser.urlencoded({ extended: true })) // parse requests of content-type - application/x-www-form-urlencoded
@@ -22,16 +24,17 @@ app.use(express.json()); // for body parser
 
 // home page Routes
 app.get('/', (req, res) => {
-    res.send('We are on HomePage')
+    //res.send('We are on HomePage')
+    res.render('pages/auth');
 });
 
 // public route anyone can access 
 // route middlewares
-app.use("/api", PublicRoutes);
+app.use("/", authRoutes);
 
 // admin route only logged in user can access
 // this route is protected with token
-app.use("/user", verifyToken, AuthRoutes);
+app.use("/user", verifyToken, userRoutes);
 
 
 
