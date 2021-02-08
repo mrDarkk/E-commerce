@@ -31,37 +31,37 @@ Let's build a fully functional e-commerce site on MERN stack!! You will be build
 
 # Paths/EndPoints:
 
-### / (home public)
+### ``/`` (home public)
 
-- GET  /product - get all product 
-- GET  /product/:Id - get one product with id 
+- ``GET``  ``/product`` - get all product 
+- ``GET``  ``/product/:Id`` - get one product with id 
 
-### / ( google login auth api)
+### ``/ ``( google login auth api)
 
-- GET /auth/google - google authenticate
-- GET /auth/google/callback - google authenticate callback
+- ``GET`` ``/auth/google`` - google authenticate
+- ``GET`` ``/auth/google/callback`` - google authenticate callback
 
-### / (auth api)
+### ``/`` (auth api)
 
-- POST /register - user can register
-- POST /login - user can login 
-- GET /product - get all product
-- GET /product/:Id - get single product with id
+- ``POST`` ``/register `` - user can register
+- ``POST`` ``/login`` - user can login 
+- ``GET`` ``/product`` - get all product
+- ``GET`` ``/product/:Id`` - get single product with id
 
 
-###  /user (only logged in user can access)
+###  ``/user`` (only logged in user can access)
 
-- GET  / - after login 
-- POST /product - new product add
-- PUT /product/:Id - update product with id
-- DELETE /product/:Id  - delete product  with id
-- GET  /product - get all product 
-- GET  /product/:Id - get one product with id 
+- ``GET``  ``/`` - after login 
+- ``POST`` ``/product`` - new product add
+-`` PUT`` ``/product/:Id`` - update product with id
+- ``DELETE`` ``/product/:Id``  - delete product  with id
+- ``GET`` `` /product`` - get all product 
+- ``GET`` `` /product/:Id`` - get one product with id 
 
-###  /user (user cart)
+###  ``/user`` (user cart)
 
-- GET  /cart - after login 
-- POST /cart - new product add
-- POST /cart-delete-item - new product add
+- ``GET``  ``/cart`` - after login 
+- ``POST`` ``/cart`` - new product add
+- ``POST`` ``/cart-delete-item`` - new product add
 
 
