@@ -20,6 +20,9 @@ router.put('/product/:Id', product.update);
 
 router.delete('/product/:Id', product.delete);
 
+router.get('/product', product.findAll);
+
+router.get('/product/:Id', product.findOne);
 //cart
 
 router.get('/cart', product.getCart);
