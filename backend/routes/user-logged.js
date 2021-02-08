@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const product = require('../controller/product.controller');
 
 // admin route
 router.get("/", (req, res) => {
@@ -11,6 +12,13 @@ router.get("/", (req, res) => {
         },
     });
 });
+
+
+router.post('/product', product.create);
+
+router.put('/product/:Id', product.update);
+
+router.delete('/product/:Id', product.delete);
 
 
 

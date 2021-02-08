@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const user = require('../controller/user.controller.js');
 const session = require('express-session');
+const product = require('../controller/product.controller');
 const passport = require('passport');
 var userProfile;
 
@@ -64,6 +65,10 @@ router.post("/register", user.register);
 
 // login route
 router.post("/login", user.login);
+
+router.get('/product', product.findAll);
+
+router.get('/product/:Id', product.findOne);
 
 
 module.exports = router;

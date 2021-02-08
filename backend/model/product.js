@@ -9,10 +9,6 @@ var ProductSchema = new  mongoose.Schema({
         type: String,
         required: true,
     },
-    Color: {
-        type: String,
-        required: true,
-    },
     Price: {
         type: String,
         required: true,
@@ -20,19 +16,12 @@ var ProductSchema = new  mongoose.Schema({
     Category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
-        required: true
-    },
-    // Category: {
-    //     type: String,
-    //     required: true
-    // },
-    Sizes: {
-        type: String,
-        required: true
+        // required: true
     },
     isAvailable: {
         type: String,
-        required: true
+        default: "true"
+        // required: true
     },
     createdAt: {
         type: Date,
