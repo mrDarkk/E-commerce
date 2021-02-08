@@ -62,6 +62,6 @@ Let's build a fully functional e-commerce site on MERN stack!! You will be build
 
 - ``GET``  ``/cart`` - after login 
 - ``POST`` ``/cart`` - new product add
-- ``POST`` ``/cart-delete-item`` - new product add
+- ``POST`` ``/cart-delete-item`` - remove from cart 
 
 
