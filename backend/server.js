@@ -5,7 +5,7 @@ const connectDB = require("./config");
 const bodyParser = require('body-parser');
 // require('dotenv/config');
 const dotenv = require("dotenv");
-const verifyToken = require("./routes/validate-token");
+const verifyToken = require("./middleware/validate-token");
 const authRoutes = require("./routes/auth.js");
 const userRoutes = require("./routes/user-logged");
 
