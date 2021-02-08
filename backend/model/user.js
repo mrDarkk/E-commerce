@@ -4,8 +4,6 @@ var userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        min: 6,
-        max: 255,
     },
     name: {
         type: String,
@@ -21,11 +19,11 @@ var userSchema = new mongoose.Schema({
     },
     isActive: {
         type: String,
-        required: true
+        default: "true"
     },
     Role: {
         type: String,
-        required: true
+        default: "user"
     },
     createdAt: {
         type: Date,
