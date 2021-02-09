@@ -1,13 +1,13 @@
 import  react from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import './Header.css'
+import './Header.css';
 import { Link } from 'react-router-dom';
 
 function Header() {
     return(
         <nav className="header">
-            <img className="header__logo" src="" alt="logo" src="https://9to5mac.com/wp-content/uploads/sites/6/2019/01/Amazon-Logo.jpg" />
+            <img className="header__logo" src="" alt="logo" src="https://pbs.twimg.com/profile_images/1191703380382670850/OU5fxQWX_400x400.jpg" />
             <div className="header__search">
                 <input type="text" className="header__searchinput" />
                 <SearchIcon className="header__searchIcon" />
