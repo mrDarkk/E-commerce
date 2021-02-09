@@ -9,14 +9,14 @@ function App() {
     <Router>
       <div className="App">
         <switch>
-          {/* <Route path="/">
+          <Route exact path="/" component={Home}>
             <Header />
             <Home />
-          </Route> */}
-          <Route path="/checkout">
+          </Route>
+          <Route exact path="/checkout">
             <Header/>
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">=
             <Login/>
           </Route>
         
